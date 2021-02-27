@@ -11,9 +11,9 @@ describe 'Patient' do
     it 'given a date and doctor, creates a new appointment belonging to that patient' do
       doctor_who = Doctor.new('The Doctor')
       hevydevy = Patient.new('Devin Townsend')
-      appointment = hevydevy.new_appointment('Friday, January 32nd', doctor_who)
+      appointment = doctor_who.new_appointment('Friday, January 32nd', hevydevy)
 
-      expect(hevydevy.appointments).to include(appointment)
+      expect(doctor_who.appointments).to include(appointment)
       expect(appointment.patient).to eq(hevydevy)
     end
   end

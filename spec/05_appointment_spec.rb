@@ -19,7 +19,7 @@ describe "Appointment" do
       doctor_who = Doctor.new("The Doctor")
       hevydevy = Patient.new("Devin Townsend")
 
-      expect{Appointment.new("Friday, January 32nd", hevydevy, doctor_who)}.to_not raise_error
+      expect{ Appointment.new("Friday, January 32nd", hevydevy, doctor_who) }.to_not raise_error
     end
   end
 
@@ -27,7 +27,7 @@ describe "Appointment" do
     it "belongs to a patient" do
       doctor_who = Doctor.new("The Doctor")
       hevydevy = Patient.new("Devin Townsend")
-      appointment = hevydevy.new_appointment("Friday, January 32nd", doctor_who)
+      appointment = doctor_who.new_appointment("Friday, January 32nd", hevydevy)
       expect(appointment.patient).to eq(hevydevy)
     end
   end
